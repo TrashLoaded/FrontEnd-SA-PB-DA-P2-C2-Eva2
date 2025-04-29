@@ -1,41 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesión</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoFood - Iniciar Sesión</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(135deg, #e0ffe1, #b5e7b9);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      border-radius: 20px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-body {
+      background-color: #ffffff;
+      padding: 2.5rem;
+    }
+
+    .btn-custom {
+      background-color: #57b846;
+      color: white;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      background-color: #3fa32b;
+      transform: translateY(-2px);
+    }
+
+    .form-control:focus {
+      border-color: #57b846;
+      box-shadow: 0 0 0 0.25rem rgba(87, 184, 70, 0.25);
+    }
+
+    .card-title {
+      font-weight: 700;
+      text-align: center;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+
+    .link-custom {
+      display: block;
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 600;
+      color: #57b846;
+      text-decoration: none;
+    }
+
+    .link-custom:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-<body class="bg-light">
-
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="card shadow">
-                    <div class="card-header text-center bg-primary text-white">
-                        <h5>Inicio de Sesión</h5>
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="correo" class="form-label">Correo Electrónico:</label>
-                                <input type="email" class="form-control" id="correo" name="correo" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="contrasena" class="form-label">Contraseña:</label>
-                                <input type="password" class="form-control" id="contrasena" name="contrasena" required>
-                            </div>
-
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary">Ingresar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow">
+          <div class="card-body">
+            <h2 class="card-title">Iniciar Sesión</h2>
+            <form id="formLogin">
+              <div class="mb-3">
+                <input type="email" class="form-control" id="emailLogin" placeholder="Correo Electrónico" required>
+                <div id="errorEmailLogin" class="form-text text-danger"></div>
+              </div>
+              <div class="mb-3">
+                <input type="password" class="form-control" id="passwordLogin" placeholder="Contraseña" required>
+                <div id="errorPasswordLogin" class="form-text text-danger"></div>
+              </div>
+              <button type="submit" class="btn btn-custom w-100">Iniciar Sesión</button>
+              <div id="mensajeLogin" class="text-center mt-3"></div>
+              <a href="#" class="link-custom" onclick="window.location.href='registro.html'">¿No tienes una cuenta? Regístrate</a>
+              <a href="#" class="link-custom" onclick="window.location.href='index.html'">Volver al menú</a>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
-
+  </div>
+  <script src="js/login.js"></script>
 </body>
 </html>
