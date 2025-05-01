@@ -9,6 +9,9 @@ document.getElementById("formLogin").addEventListener("submit", function (e) {
   
       if (usuario) {
         mostrarMensaje("mensajeLogin", "¡Bienvenido de nuevo!", "text-success");
+        setTimeout(() => {
+          window.location.href = "home.html";
+        }, 1500);
       } else {
         mostrarMensaje("mensajeLogin", "Credenciales incorrectas.", "text-danger");
       }

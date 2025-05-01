@@ -1,26 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EcoFood - Iniciar Sesión</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+
   <style>
+    @keyframes entrada {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    
     body {
       font-family: 'Nunito', sans-serif;
-      background: linear-gradient(135deg, #e0ffe1, #b5e7b9);
-      min-height: 100vh;
       margin: 0;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: url("Asset/fondo.jpg") no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      backdrop-filter: blur(8px);
+      background-color: rgba(255, 255, 255, 0.2);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      animation: entrada 0.6s ease-out;
     }
 
     .card {
       border-radius: 20px;
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease-in-out;
+      background-color: #fff;
     }
 
     .card:hover {
@@ -28,7 +62,6 @@
     }
 
     .card-body {
-      background-color: #ffffff;
       padding: 2.5rem;
     }
 
@@ -57,6 +90,23 @@
       margin-bottom: 1.5rem;
     }
 
+    .input-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #57b846;
+    }
+
+    .input-container {
+      position: relative;
+      margin-bottom: 1.25rem;
+    }
+
+    .input-container input {
+      padding-left: 40px;
+    }
+
     .link-custom {
       display: block;
       text-align: center;
@@ -79,12 +129,14 @@
           <div class="card-body">
             <h2 class="card-title">Iniciar Sesión</h2>
             <form id="formLogin">
-              <div class="mb-3">
-                <input type="email" class="form-control" id="emailLogin" placeholder="Correo Electrónico" required>
+              <div class="input-container">
+                <i class="bi bi-envelope input-icon"></i>
+                <input type="email" class="form-control" id="emailLogin" placeholder="Correo Electrónico" required />
                 <div id="errorEmailLogin" class="form-text text-danger"></div>
               </div>
-              <div class="mb-3">
-                <input type="password" class="form-control" id="passwordLogin" placeholder="Contraseña" required>
+              <div class="input-container">
+                <i class="bi bi-lock input-icon"></i>
+                <input type="password" class="form-control" id="passwordLogin" placeholder="Contraseña" required />
                 <div id="errorPasswordLogin" class="form-text text-danger"></div>
               </div>
               <button type="submit" class="btn btn-custom w-100">Iniciar Sesión</button>
