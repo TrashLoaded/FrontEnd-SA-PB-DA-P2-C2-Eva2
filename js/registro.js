@@ -15,11 +15,9 @@ document.getElementById("formRegistro").addEventListener("submit", function (e) 
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
     document.getElementById("formRegistro").reset();
 
-    // Mostrar modal de éxito
     const modal = new bootstrap.Modal(document.getElementById("registroExitosoModal"));
     modal.show();
 
-    // Redirigir al login cuando el modal se cierra
     document.getElementById("registroExitosoModal").addEventListener("hidden.bs.modal", () => {
       window.location.href = "login.html";
     });
